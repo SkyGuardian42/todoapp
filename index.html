@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malte's ToDo</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <aside>
+    <img class="logo" width="280" height="124" src="logo.svg" alt="todo. Logo">
+    <form action="" id="add_toto">
+      <label for="todo_title">Titel</label>
+      <input type="text" id="todo_title" placeholder="ToDo Programmieren..." required>
+
+      <label for="todo_body">Inhalt</label>
+      <textarea name="todo_body" id="todo_body" rows="4" placeholder="Dazu wichtig zu wissen ist..." required></textarea>
+
+      <label for="todo_category">Kategorie</label>
+      <input list="todo_categories" id="todo_category" placeholder="Design" required>
+      <datalist id="todo_categories">
+        <option value="Design">Design</option>
+        <option value="Programmieren">Programmieren</option>
+        <option value="Planen">Planen</option>
+        <option value="Bug">Bug</option>
+
+      </datalist>
+
+      <input type="submit" value="Hinzufügen">
+    </form>
+
+    <footer>&copy 2021 Malte Janßen</footer>
+  </aside>
+  <main>
+    <div class="board">
+      <h1>ToDo</h1>
+
+      <div class="entry" draggable="true">
+        <h2>Buttonfarben besprechen<span class="category" data-category-name="design">Design</span></h2>
+        <p>Martin will, dass die Hauptfarbe der Buttons blau wird, aber Angelika denkt, dass das zu klinisch rüberkommen
+          könnte. <br>Kompromissvorschlag: Lila?</p>
+      </div>
+      <div class="entry" draggable="true">
+        <h2>Redis Cache einbinden<span class="category" data-category-name="programmieren">Programmieren</span></h2>
+        <p>Postgres sollte gecached werden -> Mit Freddi Redis-Helm mit Terraform installieren</p>
+      </div>
+    </div>
+    <div class="board">
+      <h1>In Arbeit</h1>
+
+      <div class="entry" draggable="true">
+        <h2>Kontaktformular an Trello weiterleiten<span class="category"
+            data-category-name="programmieren">Programmieren</span></h2>
+        <p>Achtung: Dateigrößenmaximum von AWS Lambda. Falls wir die Trello-Bibliothek einbinden, überschreiten wir das
+          Maximum. -> Einbinden von AXIOS, sollte vorhanden sein.</p>
+      </div>
+      <div class="entry" draggable="true">
+        <h2>Mit Kunden über Strategie reden<span class="category" data-category-name="planen">Planen</span></h2>
+        <p>Aktuell will der Kunde, dass die Landing-Page am Anfang ein großes Bild des Firmenhundes zeigt. Durch A/B
+          Testing haben wir aber rausgefunden, dass Katzen effektiver sind -> mit Kunden reden</p>
+      </div>
+      <div class="entry" draggable="true">
+        <h2>Overflow Bug fixen<span class="category" data-category-name="bug">Bug</span></h2>
+        <p>Laut Google Search Console gibt es einen Overflow auf der 'Über Uns' Seite, allerdings kann der Fehler in
+          Chrome nicht reproduziert werden. Mit IOS testen!</p>
+      </div>
+
+    </div>
+    <div class="board">
+      <h1>Fertig</h1>
+
+      <div class="entry" draggable="true">
+        <h2>Mit Michi über Holzlack reden<span class="category" data-category-name="bootfahren">Bootfahrt</span></h2>
+        <p>Jährliche Nachlackierung, Michi will wissen ob wir schon neue Grundierung brauchen. Vorher: Mit Chrissi über
+          Farbe reden.</p>
+      </div>
+      <div class="entry" draggable="true">
+        <h2>Schriftart bestimmen<span class="category" data-category-name="design">Design</span></h2>
+        <p>Aktuell überlegen wir, ob wir einfach Inter nehmen sollen, oder lieber Helvetica lizensieren wollen.
+          Helvetica währe ja auf jeden Fall vielseitiger einsetzbar, aber die Kosten... Außerdem würde die Printversion
+          extra kosten, welche wir aber für die neuen Visitenkarten bräuchten.</p>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

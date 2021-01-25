@@ -1,0 +1,227 @@
+/* 🌍 Global Variables */
+
+:root {
+	--col-dark: #f2f4fa;
+	--col-border: #ececf2;
+  --col-shadow: #06358112;
+
+	--s0_5: 0.125rem;
+	--s1: 0.25rem;
+	--s2: 0.5rem;
+	--s3: 0.75rem;
+	--s3_5: 0.875rem;
+	--s4: 1rem;
+	--s5: 1.25rem;
+	--s6: 1.5rem;
+	--s8: 2rem;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background:conic-gradient(from 45deg, #edf3f9,#fdf7fb,#f6ffff, #f8f9ff, #edf3f9);
+	height: 100%;
+	font-family: "Inter", sans-serif;
+	display: flex;
+}
+
+
+/* 📎 Sidebar */
+
+aside {
+	background: #fff;
+	border: var(--s0_5) solid var(--col-border);
+	padding: var(--s8);
+	margin: var(--s8);
+	border-radius: var(--s4);
+	flex: 0 .5 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	display: block;
+	margin: 0;
+	height: auto;
+	max-width: 280px;
+	margin-bottom: var(--s6);
+	width: 100%;
+}
+
+footer {
+	color: #565e6a;
+	text-align: center;
+	font-size: var(--s3_5);
+}
+
+
+/* 📄 Boards Component */
+
+main {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+	grid-gap: var(--s4);
+	padding: var(--s4);
+	flex-grow: 1;
+	overflow-y: auto;
+}
+
+.board {
+	padding: var(--s4);
+	border-radius: var(--s4);
+	box-shadow: 0px 0px 1px 0px #fff;
+	transition: background-color .3s ease-in-out;
+}
+
+.board.is-over {
+	background: #e9ecf3
+}
+
+
+/* ✅ Todo Item Component */
+
+.entry {
+	cursor: move;
+	padding: var(--s5);
+	margin: var(--s4) 0;
+	background: white;
+	box-shadow: 0 1px 4px 0 #06358112;
+	border-radius: var(--s4);
+}
+
+.entry h1 {
+	font-weight: 800;
+	color: rgb(17, 24, 39);
+	margin-top: 0;
+}
+
+.entry h2 {
+	margin: 0;
+	color: #30343b;
+	margin-bottom: var(--s6);
+	font-size: var(--s4);
+	font-weight: 600;
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.entry p {
+	margin: 0;
+	color: #50545c;
+	font-weight: 500;
+	font-size: 1rem;
+}
+
+.entry.is-dragged {
+	opacity: 0.4;
+}
+
+
+/* 🏷️ Category Indicator */
+
+.entry .category {
+	font-size: var(--s3_5);
+	font-weight: 500;
+	padding: var(--s2) var(--s3);
+	border-radius: var(--s6);
+	color: #6366F1;
+	background: #E0E7FF;
+}
+
+.category[data-category-name="design"] {
+	background: #d1fae5;
+	color: #10B981;
+}
+
+.category[data-category-name="programmieren"] {
+	background: #DBEAFE;
+	color: #3B82F6;
+}
+
+.category[data-category-name="bug"] {
+	background: #FEE2E2;
+	color: #EF4444;
+}
+
+
+.category[data-category-name="planen"] {
+	background: #FEF3C7;
+	color: #F59E0B;
+}
+
+
+/* 📋 Form-Code */	
+
+form {
+	width: 100%;
+	margin-bottom: var(--s6);
+}
+
+input, select, textarea, label {
+	display: block;
+	width: 100%;
+	margin: 0;
+	font-size: var(--s3_5);
+	color: #343943;
+	font-family: inherit;
+}
+
+label {
+	font-weight: 500;
+	font-size: var(--s3_5);
+	margin-bottom: var(--s1);
+
+}
+
+input, textarea, select {
+	margin-bottom: var(--s6);
+	padding: var(--s2);
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+	border: 1px solid rgb(229, 231, 235);
+	border-radius: var(--s2);
+	background: white;
+	font-family: inherit;
+}
+
+textarea {
+	resize: vertical;
+}
+
+input[type="submit"] {
+	background: #295fe4;
+	color: white;
+	padding: var(--s3) var(--s1);
+	font-weight: 600;
+}
+
+input:focus, textarea:focus {
+	outline-color: #92b7f3;
+}
+
+/* input:invalid {
+	outline-color: #EF4444;
+} */
+
+
+/* 📱 Media Queries */
+
+@media screen and (max-width: 640px) {
+	body {
+		flex-direction: column;
+	}
+	main {
+		overflow-y: visible;
+
+	}
+}
