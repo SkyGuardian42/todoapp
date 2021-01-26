@@ -203,15 +203,20 @@ input[type="submit"] {
 	color: white;
 	padding: var(--s3) var(--s1);
 	font-weight: 600;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background: #376bee;
+}
+
+input[type="submit"]:active {
+	background: #235ae7;
 }
 
 input:focus, textarea:focus {
 	outline-color: #92b7f3;
 }
-
-/* input:invalid {
-	outline-color: #EF4444;
-} */
 
 
 /* 📱 Media Queries */
