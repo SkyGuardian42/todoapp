@@ -5,33 +5,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maltes ToDo</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="./media/favicon.svg">
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="./styles/style.css">
+  <script defer src="./scripts/script.js"></script>
 </head>
 
 <body>
   <aside>
-    <img class="logo" width="280" height="124" src="logo.svg" alt="todo. Logo">
+    <img class="logo" width="280" height="124" src="./media/logo.svg" alt="todo. Logo">
     <form action="" id="add_toto">
-      <label for="todo_title">Titel</label>
-      <input type="text" id="todo_title" placeholder="ToDo Programmieren..." autocomplete="off" required>
+      <div class="row">
+        <label for="todo_title">Titel</label>
+        <input type="text" id="todo_title" placeholder="ToDo Programmieren..." autocomplete="off" required>
+      </div>
 
-      <label for="todo_body">Inhalt</label>
-      <textarea name="todo_body" id="todo_body" rows="4" placeholder="Dazu wichtig zu wissen ist..." required></textarea>
+      <div class="row">
+        <label for="todo_body">Inhalt</label>
+        <textarea name="todo_body" id="todo_body" rows="4" placeholder="Dazu wichtig zu wissen ist..." required></textarea>
+      </div>
 
-      <label for="todo_category">Kategorie</label>
-      <input list="todo_categories" id="todo_category" placeholder="Design" required>
-      <datalist id="todo_categories">
-        <option value="Design">Design</option>
-        <option value="Programmieren">Programmieren</option>
-        <option value="Planen">Planen</option>
-        <option value="Bug">Bug</option>
-
-      </datalist>
+      <div class="row">
+        <label for="todo_category">Kategorie</label>
+        <input list="todo_categories" id="todo_category" placeholder="Design" required>
+        <datalist id="todo_categories">
+          <option value="Design">Design</option>
+          <option value="Programmieren">Programmieren</option>
+          <option value="Planen">Planen</option>
+          <option value="Bug">Bug</option>
+        </datalist>
+      </div>
 
       <input type="submit" value="Hinzufügen">
     </form>

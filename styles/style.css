@@ -161,10 +161,14 @@ main {
 }
 
 
-/* 📋 Form-Code */	
+/* 📋 Add-Todo Form */	
 
 form {
 	width: 100%;
+	margin-bottom: var(--s6);
+}
+
+form .row {
 	margin-bottom: var(--s6);
 }
 
@@ -181,11 +185,9 @@ label {
 	font-weight: 500;
 	font-size: var(--s3_5);
 	margin-bottom: var(--s1);
-
 }
 
 input, textarea, select {
-	margin-bottom: var(--s6);
 	padding: var(--s2);
 	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 	border: 1px solid rgb(229, 231, 235);
@@ -215,18 +217,31 @@ input[type="submit"]:active {
 }
 
 input:focus, textarea:focus {
-	outline-color: #92b7f3;
+	outline: none;
+	box-shadow: 0 0 1px 1px #92b7f3;
 }
 
+.error:focus {
+	box-shadow: 0 0 0px 1px #f87171;
+}
+input.error, textarea.error {
+	border-color: #f87171;
+}
+
+.errorMsg {
+	color: #dc2626;
+	margin-top: var(--s2);
+	font-size: var(--s3_5);
+}
 
 /* 📱 Media Queries */
 
 @media screen and (max-width: 640px) {
 	body {
 		flex-direction: column;
+		background-attachment: fixed;
 	}
 	main {
 		overflow-y: visible;
-
 	}
 }

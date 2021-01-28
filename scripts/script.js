@@ -63,7 +63,7 @@
 
 
 	//	------------------
-	//	  ➕ Form-Code
+	//	  ➕ Add Todo
 	//	------------------
 
 	const form = document.getElementById('add_toto');
@@ -96,9 +96,87 @@
 		document.querySelector('main > .board').appendChild(mainEl);
 	}
 
+
+	//	-----------------------
+	//	  ✅ Form validation
+	//	-----------------------
+
+  const validateElements = [
+    {
+      el: '#todo_title',
+      notEmpty: true
+    },
+    {
+      el: '#todo_body',
+      notEmpty: true
+    },
+    {
+      el: '#todo_category',
+      notEmpty: true
+    }
+	]
+	
+	/**
+   * Gibt eine Funktion zurück, die true zurückgibt, falls mindestens ein Fehler aufgetreten ist, und den Fehler unter dem Inputelement einfügt
+   * @param {Object} e Objekt mit Informationen über das zu validierende Element
+   */
+  let validateField = e => {
+    return () => {
+      const targetField = document.querySelector(e.el);
+      setErrorText(targetField, "Wert darf nicht leer sein");
+
+      let error = false;
+
+      if(e.notEmpty) {
+        const val = targetField.value;
+        if(val.trim() == '' || val.length == 0) {
+          error = true;
+          addErrorText(targetField, "Wert darf nicht leer sein");
+        }
+      }
+			
+			if(error) {
+				targetField.classList.add('error');
+			} else {
+				targetField.classList.remove('error');
+			}
+
+      return error;
+    }
+
+    function addErrorText(el, text) {
+      const errorContainer = getErrorContainer(el);
+      errorContainer.innerHTML += text + "<br/>";
+    }
+    
+    function setErrorText(el, text) {
+      const errorContainer = getErrorContainer(el);
+      errorContainer.innerHTML = "";
+    }
+
+    function getErrorContainer(el) {
+      const nextSibling = el.nextElementSibling;
+      let errorDiv;
+
+      if(nextSibling !== null && nextSibling.classList.contains("errorMsg")) {
+        errorDiv = nextSibling;
+      } else {
+        errorDiv = document.createElement("div");
+        errorDiv.classList.add("errorMsg");
+        el.insertAdjacentHTML('afterEnd', errorDiv.outerHTML);
+      }
+
+      return errorDiv;
+    }
+  }
+
+	// listen to form submit
 	form.addEventListener('submit', e => {
 		e.preventDefault();
-		addTodo(todoTitle.value, todoBody.value, todoCategory.value);
-		form.reset()
+    const valid = !validateElements.some((el) => validateField(el)());
+    if(valid) {
+			addTodo(todoTitle.value, todoBody.value, todoCategory.value);
+			form.reset()
+    }
 	})
 }
