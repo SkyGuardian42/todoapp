@@ -65,7 +65,7 @@ footer {
 }
 
 
-/* 📄 Boards Component */
+/* 📄 Boards */
 
 main {
 	display: grid;
@@ -88,7 +88,7 @@ main {
 }
 
 
-/* ✅ Todo Item Component */
+/* ✅ Todo Item */
 
 .entry {
 	cursor: move;

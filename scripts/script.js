@@ -15,7 +15,7 @@
 	const addDraggable = (draggable) => {
 		draggable.addEventListener('dragstart', (e) => {
 			draggable.classList.add("is-dragged");
-			currDrag = e.target;
+			currDrag = draggable;
 		}, false);
 		
 		draggable.addEventListener('dragend', () => {
